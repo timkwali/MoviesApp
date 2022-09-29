@@ -19,7 +19,7 @@ class MoviesRepositoryImpl @Inject constructor(
     private val moviesApi: MoviesApi,
     private val moviesDatabase: MoviesDatabase
 ): MoviesRepository {
-    override suspend fun getMovies(): Flow<PagingData<Movie>> {
+    override fun getMovies(): Flow<PagingData<Movie>> {
         // appending '%' so we can allow other characters to be before and after the query string
 //        val dbQuery = "%${login.replace(' ', '%')}%"
         val pagingSourceFactory =  { moviesDatabase.moviesDao().getAllMovies()}

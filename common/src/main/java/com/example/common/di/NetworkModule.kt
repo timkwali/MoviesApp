@@ -94,4 +94,5 @@ object NetworkModule {
     fun provideMoviesRepository(moviesApi: MoviesApi, moviesDatabase: MoviesDatabase): MoviesRepository {
         return MoviesRepositoryImpl(moviesApi, moviesDatabase)
     }
+
 }
