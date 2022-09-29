@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="check_connection">Cannot connect to internet. Check your network connection.</string>
+    <string name="unable_to_connect_to_server">Unable to connect to server</string>
+    <string name="the_request_timed_out">The request timed out.</string>
+</resources>
