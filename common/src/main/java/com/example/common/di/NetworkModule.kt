@@ -4,13 +4,13 @@ import android.content.Context
 import com.example.common.BuildConfig
 import com.example.common.data.api.MoviesApi
 import com.example.common.data.repository.MoviesRepositoryImpl
-import com.example.common.domain.MoviesRepository
+import com.example.common.domain.repository.MoviesRepository
 import com.example.common.utils.ApiError
 import com.example.common.utils.Constants.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.snappaytechnologies.snappaypayment.common.utils.NetworkConnectivityInterceptor
-import com.snappaytechnologies.snappaypayment.common.utils.NetworkResponseInterceptor
+import com.example.common.utils.NetworkConnectivityInterceptor
+import com.example.common.utils.NetworkResponseInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

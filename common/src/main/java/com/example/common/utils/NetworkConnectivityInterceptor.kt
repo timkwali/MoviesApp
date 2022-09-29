@@ -1,7 +1,8 @@
-package com.snappaytechnologies.snappaypayment.common.utils
+package com.example.common.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import com.example.common.utils.NoNetworkException
 import okhttp3.Interceptor
 import okhttp3.Response
 

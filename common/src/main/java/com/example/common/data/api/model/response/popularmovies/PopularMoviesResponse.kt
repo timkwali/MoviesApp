@@ -1,5 +1,6 @@
-package com.timkwali.tmdmovies.common.data.model.popularmovies
+package com.example.common.data.api.model.response.popularmovies
 
+import com.example.common.data.api.model.response.popularmovies.PopularMovie
 import com.google.gson.annotations.SerializedName
 
 data class PopularMoviesResponse(

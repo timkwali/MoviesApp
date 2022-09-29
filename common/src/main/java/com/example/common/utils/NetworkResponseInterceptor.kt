@@ -1,4 +1,4 @@
-package com.snappaytechnologies.snappaypayment.common.utils
+package com.example.common.utils
 
 import okhttp3.Interceptor
 import okhttp3.Response

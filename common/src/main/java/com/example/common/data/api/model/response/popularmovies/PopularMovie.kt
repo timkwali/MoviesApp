@@ -1,14 +1,9 @@
-package com.timkwali.tmdmovies.common.data.model.popularmovies
+package com.example.common.data.api.model.response.popularmovies
 
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.timkwali.tmdmovies.common.utils.Constants
 
-@Entity(tableName = Constants.POPULAR_MOVIES_TABLE)
 data class PopularMovie(
-    @PrimaryKey
     @SerializedName("id")
     val id: Int?,
     @SerializedName("adult")

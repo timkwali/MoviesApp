@@ -1,6 +1,6 @@
-package com.example.common.domain
+package com.example.common.domain.repository
 
-import com.timkwali.tmdmovies.common.data.model.popularmovies.PopularMoviesResponse
+import com.example.common.data.api.model.response.popularmovies.PopularMoviesResponse
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {

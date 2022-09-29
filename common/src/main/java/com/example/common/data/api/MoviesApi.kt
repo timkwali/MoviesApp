@@ -1,7 +1,7 @@
 package com.example.common.data.api
 
 import com.example.common.utils.Constants
-import com.timkwali.tmdmovies.common.data.model.popularmovies.PopularMoviesResponse
+import com.example.common.data.api.model.response.popularmovies.PopularMoviesResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
