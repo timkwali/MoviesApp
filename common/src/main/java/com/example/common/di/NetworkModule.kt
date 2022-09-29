@@ -3,6 +3,7 @@ package com.example.common.di
 import android.content.Context
 import com.example.common.BuildConfig
 import com.example.common.data.api.MoviesApi
+import com.example.common.data.db.MoviesDatabase
 import com.example.common.data.repository.MoviesRepositoryImpl
 import com.example.common.domain.repository.MoviesRepository
 import com.example.common.utils.ApiError
@@ -90,7 +91,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMoviesRepository(moviesApi: MoviesApi): MoviesRepository {
-        return MoviesRepositoryImpl(moviesApi)
+    fun provideMoviesRepository(moviesApi: MoviesApi, moviesDatabase: MoviesDatabase): MoviesRepository {
+        return MoviesRepositoryImpl(moviesApi, moviesDatabase)
     }
 }

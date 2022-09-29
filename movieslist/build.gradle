@@ -61,9 +61,4 @@ dependencies {
     implementation 'com.google.dagger:hilt-android:2.38.1'
     annotationProcessor 'com.google.dagger:hilt-android-compiler:2.37'
     kapt "com.google.dagger:hilt-android-compiler:2.37"
-
-    //Glide
-    implementation('com.github.bumptech.glide:okhttp3-integration:4.9.0') {
-        exclude group: 'glide-parent'
-    }
 }
