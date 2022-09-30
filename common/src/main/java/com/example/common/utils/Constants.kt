@@ -3,7 +3,8 @@ package com.example.common.utils
 import com.example.common.BuildConfig
 
 object Constants {
-    const val IMAGE_URL = "http://image.tmdb.org/t/p/w500"
+    const val IMAGE_URL = "https://image.tmdb.org/t/p/original"
+//    const val IMAGE_URL = "http://image.tmdb.org/t/p/w500"
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val LANGUAGE = "en-US"
     const val API_KEY = BuildConfig.API_KEY

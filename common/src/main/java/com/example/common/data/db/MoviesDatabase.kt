@@ -4,7 +4,6 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.common.data.db.dao.MoviesDao
-import com.example.common.data.db.dao.RemoteKeysDao
 import com.example.common.data.db.model.Movie
 import com.example.common.utils.Constants.MOVIES_DATABASE
 
@@ -16,7 +15,6 @@ import com.example.common.utils.Constants.MOVIES_DATABASE
 @TypeConverters(Converters::class)
 abstract class MoviesDatabase: RoomDatabase() {
     abstract fun moviesDao(): MoviesDao
-    abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {
         const val DATABASE_NAME = MOVIES_DATABASE

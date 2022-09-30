@@ -6,5 +6,9 @@ import com.example.common.data.db.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
-    fun getMovies(): Flow<PagingData<Movie>>
+    suspend fun getMovies(): PopularMoviesResponse
+    fun getDbMovies(): Flow<List<Movie>>
+    suspend fun saveMovies(movies: List<Movie>)
+    fun getMovieById(id: Int): Flow<Movie>
+    suspend fun deleteAllMovies()
 }
