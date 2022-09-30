@@ -18,3 +18,5 @@ The home screen loads the list of movies. On click on each movie, a detailed scr
 5. Kotlin
 6. MVVM architecture
 7. Multi-modular architecture
+8. Unit tests
+9. Mockito
