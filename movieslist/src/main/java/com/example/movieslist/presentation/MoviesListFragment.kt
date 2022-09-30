@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.data.db.model.Movie
 import com.example.common.utils.Resource
+import com.example.common.utils.Utils.showSnackBar
 import com.example.movieslist.databinding.FragmentMoviesListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -67,10 +68,12 @@ class MoviesListFragment : Fragment() {
             moviesViewModel.moviesListResponse.collect {
                 binding.apply {
                     swipeSrl.isRefreshing = it is Resource.Loading
-                    emptyListTv.isVisible = it is Resource.Error
+                    emptyListTv.isVisible = it is Resource.Error && it.data == null
+                    retryBtn.isVisible = it is Resource.Error && it.data == null
                     emptyListTv.text = it?.message
-                    if(it is Resource.Success) {
-                        it.data?.let { it1 -> setUpRecyclerView(it1) }
+                    if(it?.data != null && it is Resource.Error) showSnackBar(it.message)
+                    if(it?.data != null) {
+                        setUpRecyclerView(it.data!!)
                     }
                 }
             }
