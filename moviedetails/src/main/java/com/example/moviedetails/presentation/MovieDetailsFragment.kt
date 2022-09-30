@@ -14,6 +14,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.common.data.db.model.Movie
 import com.example.common.utils.Constants.IMAGE_URL
 import com.example.common.utils.Resource
+import com.example.common.utils.Utils.addChips
+import com.example.common.utils.Utils.getGenreNameFromId
 import com.example.common.utils.Utils.loadImage
 import com.example.moviedetails.R
 import com.example.moviedetails.databinding.FragmentMovieDetailsBinding
@@ -40,6 +42,7 @@ class MovieDetailsFragment : Fragment() {
         setListeners()
         getMovieDetails()
         observeMovieDetails()
+        observeGenreNames()
     }
 
     override fun onDestroy() {
@@ -63,7 +66,6 @@ class MovieDetailsFragment : Fragment() {
             voteAverage.text = movie.voteAverage.toString()
             voteCount.text = "${movie.voteCount} Votes"
             releaseDate.text = movie.releaseDate
-            genre.text = movie.genreIds.toString()
         }
     }
 
@@ -80,7 +82,30 @@ class MovieDetailsFragment : Fragment() {
                     loading.isVisible = it is Resource.Loading
                     errorTv.isVisible = it is Resource.Error
                     errorTv.text = it?.message
-                    if(it is Resource.Success)  setUpViews(it.data!!)
+                    if(it is Resource.Success)  {
+                        observeGenres(it.data?.genreIds ?: emptyList())
+                        setUpViews(it.data!!)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun observeGenres(genreIds: List<Int>) {
+        lifecycleScope.launchWhenStarted {
+            movieDetailsViewModel.genres.collect {
+                if(it is Resource.Success) {
+                    movieDetailsViewModel.getGenreNames(genreIds, it.data!!)
+                }
+            }
+        }
+    }
+
+    private fun observeGenreNames() {
+        lifecycleScope.launchWhenStarted {
+            movieDetailsViewModel.genreNames.collect {
+                if(it?.data != null) {
+                    binding.genresCg.addChips(it.data!!)
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.example.common.data.db.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -7,6 +8,7 @@ import com.example.common.data.api.model.response.genres.Genre
 import com.example.common.data.db.model.Movie
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface GenreDao {
 
     @Query("SELECT * FROM movies_genre")
