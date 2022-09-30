@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/moviesListFragment">
+    app:startDestination="@id/movies_list_nav_graph">
 
-    <fragment
-        android:id="@+id/moviesListFragment"
-        android:name="com.example.movieslist.presentation.MoviesListFragment"
-        android:label="MoviesListFragment" />
-    <fragment
-        android:id="@+id/movieDetailsFragment"
-        android:name="com.example.moviedetails.presentation.MovieDetailsFragment"
-        android:label="MovieDetailsFragment" />
+    <include app:graph="@navigation/movies_list_nav_graph" />
+    <include app:graph="@navigation/movie_details_nav_graph" />
+
 </navigation>
