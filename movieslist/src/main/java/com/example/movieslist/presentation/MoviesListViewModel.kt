@@ -37,7 +37,7 @@ class MoviesListViewModel @Inject constructor(
         }
     }
 
-    private fun getGenreList() = viewModelScope.launch {
+    fun getGenreList() = viewModelScope.launch {
         genreList.value = Resource.Loading()
         getGenres().collect {
             genreList.value = it
