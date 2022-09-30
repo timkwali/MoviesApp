@@ -1,6 +1,7 @@
 package com.example.movieslist.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,6 +60,7 @@ class MoviesListFragment : Fragment() {
             }
             retryBtn.setOnClickListener {
                 moviesViewModel.getMoviesList()
+                moviesViewModel.getGenreList()
             }
         }
     }
@@ -67,11 +69,12 @@ class MoviesListFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             moviesViewModel.moviesListResponse.collect {
                 binding.apply {
+                    Log.d("ldskfja", "ldfak--->${it?.data}")
                     swipeSrl.isRefreshing = it is Resource.Loading
-                    emptyListTv.isVisible = it is Resource.Error && it.data == null
-                    retryBtn.isVisible = it is Resource.Error && it.data == null
+                    emptyListTv.isVisible = it is Resource.Error && (it.data == null || it.data?.isEmpty() == true)
+                    retryBtn.isVisible = it is Resource.Error && (it.data == null || it.data?.isEmpty() == true)
                     emptyListTv.text = it?.message
-                    if(it?.data != null && it is Resource.Error) showSnackBar(it.message)
+                    if((it?.data != null || it?.data?.isEmpty() == true) && it is Resource.Error) showSnackBar(it.message)
                     if(it?.data != null) {
                         setUpRecyclerView(it.data!!)
                     }

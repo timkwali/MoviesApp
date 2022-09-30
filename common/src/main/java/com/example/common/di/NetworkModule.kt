@@ -60,18 +60,18 @@ object NetworkModule {
         return GsonConverterFactory.create()
     }
 
-    @Provides
-    @Singleton
-    fun provideRetrofitClient(
-        client: OkHttpClient,
-        converterFactory: Converter.Factory
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(converterFactory)
-            .client(client)
-            .build()
-    }
+//    @Provides
+//    @Singleton
+//    fun provideRetrofitClient(
+//        client: OkHttpClient,
+//        converterFactory: Converter.Factory
+//    ): Retrofit {
+//        return Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(converterFactory)
+//            .client(client)
+//            .build()
+//    }
 
     @Provides
     @Singleton
